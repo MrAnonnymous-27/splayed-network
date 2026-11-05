@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="neonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00ff66" />
+      <stop offset="100%" stop-color="#00f3ff" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="500" fill="#0b0f19" rx="90" />
+
+  <!-- Outer Hexagon / Shield Ring -->
+  <polygon points="250,50 420,150 420,350 250,450 80,350 80,150" fill="none" stroke="url(#neonGrad)" stroke-width="8" opacity="0.4" />
+
+  <!-- Central S-Curve for SPLAYED ($SPL) -->
+  <path d="M 330 150 C 330 130, 290 110, 250 110 C 190 110, 160 140, 160 180 C 160 220, 200 240, 260 260 C 320 280, 340 310, 340 350 C 340 390, 290 420, 230 420 C 180 420, 150 390, 140 370" fill="none" stroke="url(#neonGrad)" stroke-width="24" stroke-linecap="round" filter="url(#glow)" />
+
+  <!-- Glowing Core Nodes -->
+  <circle cx="250" cy="110" r="10" fill="#00f3ff" filter="url(#glow)" />
+  <circle cx="230" cy="420" r="10" fill="#00ff66" filter="url(#glow)" />
+</svg>
