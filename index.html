@@ -3,179 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPLAYED ($SPL) - The Decentralized Global Currency</title>
+    <title>SPLAYED ($SPL) — Next-Gen Decentralized Global Currency</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
     <style>
-        :root {
-            --bg-color: #050508;
-            --card-bg: #0f1017;
-            --neon-green: #00ff66;
-            --neon-blue: #00f3ff;
-            --text-color: #e0e0e6;
-            --text-dim: #94a3b8;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            overflow-x: hidden;
-        }
-
-        /* Hero Section */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 8%;
-            border-bottom: 1px solid rgba(0, 243, 255, 0.1);
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            color: #fff;
-            text-shadow: 0 0 10px var(--neon-blue);
-        }
-
-        .logo span {
-            color: var(--neon-green);
-        }
-
-        .cta-btn {
-            background: transparent;
-            color: var(--neon-green);
-            border: 2px solid var(--neon-green);
-            padding: 10px 25px;
-            border-radius: 30px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 0 10px rgba(0, 255, 102, 0.2);
-        }
-
-        .cta-btn:hover {
-            background: var(--neon-green);
-            color: var(--bg-color);
-            box-shadow: 0 0 20px var(--neon-green);
-        }
-
-        .hero {
+            background-color: #0b0f19;
+            color: #ffffff;
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
             text-align: center;
-            padding: 100px 20px;
-            background: radial-gradient(circle at center, #0f1017 0%, var(--bg-color) 70%);
         }
-
-        .hero h1 {
-            font-size: 3.5rem;
+        .container {
             max-width: 800px;
-            margin-bottom: 20px;
-            line-height: 1.2;
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
         }
-
-        .hero h1 span {
-            background: linear-gradient(90deg, var(--neon-green), var(--neon-blue));
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(0, 255, 102, 0.4));
+        }
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        .hero p {
-            font-size: 1.2rem;
-            color: var(--text-dim);
-            max-width: 600px;
-            margin-bottom: 40px;
+        p {
+            color: #9ca3af;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
         }
-
-        /* Stats Grid */
-        .stats-container {
+        .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
-            width: 80%;
-            max-width: 1000px;
-            margin: 50px auto;
+            margin-bottom: 30px;
         }
-
         .stat-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 243, 255, 0.2);
-            padding: 30px;
-            border-radius: 15px;
-            text-align: center;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
-            transition: 0.3s;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
         }
-
-        .stat-card:hover {
-            border-color: var(--neon-green);
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0, 255, 102, 0.2);
-        }
-
         .stat-card h3 {
-            font-size: 2rem;
-            color: var(--neon-green);
-            margin-bottom: 10px;
+            color: #00ff66;
+            font-size: 1.8rem;
+            margin-bottom: 5px;
         }
-
-        .stat-card p {
-            color: var(--text-dim);
-            font-size: 0.95rem;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 40px;
-            border-top: 1px solid rgba(0, 243, 255, 0.1);
-            color: var(--text-dim);
+        .stat-card span {
+            color: #9ca3af;
             font-size: 0.9rem;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            color: #0b0f19;
+            padding: 12px 30px;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0, 255, 102, 0.3);
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(0, 243, 255, 0.5);
+        }
+        footer {
+            margin-top: 40px;
+            font-size: 0.85rem;
+            color: #6b7280;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">SPLAYED <span>$SPL</span></div>
-        <button class="cta-btn">Whitepaper</button>
-    </header>
+    <div class="container">
+        <!-- Official Logo Integration -->
+        <img src="logo.svg" alt="SPLAYED Logo" class="logo-img">
+        
+        <h1>SPLAYED ($SPL)</h1>
+        <p>The Next Generation Decentralized Global Currency. Built for absolute financial freedom, supreme scalability, and strict scarcity. Inspired by the legacy of Bitcoin, engineered for the future.</p>
 
-    <section class="hero">
-        <h1>The Next Generation Decentralized Global Currency <span>$SPL</span></h1>
-        <p>Built for absolute financial freedom, supreme scalability, and strict scarcity. Inspired by the legacy of Bitcoin, engineered for the future.</p>
-        <button class="cta-btn" style="font-size: 1.1rem; padding: 12px 35px;">Explore Network</button>
-    </section>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>21M</h3>
+                <span>Max Total Supply ($SPL)</span>
+            </div>
+            <div class="stat-card">
+                <h3>Layer 1</h3>
+                <span>Independent Splaychain</span>
+            </div>
+        </div>
 
-    <div class="stats-container">
-        <div class="stat-card">
-            <h3>21M</h3>
-            <p>Max Total Supply ($SPL)</p>
-        </div>
-        <div class="stat-card">
-            <h3>Layer 1</h3>
-            <p>Independent Splaychain</p>
-        </div>
-        <div class="stat-card">
-            <h3>Zero</h3>
-            <p>Central Intermediaries</p>
-        </div>
+        <a href="WHITEPAPER.md" class="btn" target="_blank">Explore Whitepaper</a>
+
+        <footer>
+            &copy; 2026 SPLAYED Foundation. All rights reserved. Powered by $SPL.
+        </footer>
     </div>
 
-    <footer>
-        <p>&copy; 2026 SPLAYED Foundation. All rights reserved. Powered by $SPL.</p>
-    </footer>
-
 </body>
-</html>
-
-
-  
+    </html>
