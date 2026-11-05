@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splaychain Explorer — SPLAYED ($SPL)</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(17, 24, 39, 0.7);
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .logo-img {
+            width: 45px;
+            height: 45px;
+            filter: drop-shadow(0 0 10px rgba(0, 255, 102, 0.4));
+        }
+        h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .back-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 255, 102, 0.3);
+            color: #00ff66;
+            padding: 8px 16px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .back-btn:hover {
+            background: rgba(0, 255, 102, 0.1);
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .stat-card h3 {
+            color: #00ff66;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        .stat-card span {
+            color: #9ca3af;
+            font-size: 0.85rem;
+        }
+        .section-title {
+            font-size: 1.2rem;
+            color: #00f3ff;
+            margin-bottom: 15px;
+        }
+        .block-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .block-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .block-info span {
+            display: block;
+            font-size: 0.85rem;
+            color: #9ca3af;
+        }
+        .block-info b {
+            color: #fff;
+            font-size: 1rem;
+        }
+        .reward-tag {
+            background: rgba(0, 255, 102, 0.1);
+            color: #00ff66;
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <div class="logo-area">
+                <img src="logo.svg" alt="SPLAYED Logo" class="logo-img">
+                <h1>Splaychain Explorer</h1>
+            </div>
+            <a href="index.html" class="back-btn">← Home</a>
+        </header>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>#1</h3>
+                <span>Current Height</span>
+            </div>
+            <div class="stat-card">
+                <h3>50 SPL</h3>
+                <span>Block Reward</span>
+            </div>
+            <div class="stat-card">
+                <h3>SHA-256</h3>
+                <span>Consensus PoW</span>
+            </div>
+        </div>
+
+        <div class="section-title">📦 Genesis Block & Recent Ledgers</div>
+        <div class="block-list">
+            <div class="block-item">
+                <div class="block-info">
+                    <b>Block #0 (Genesis Block)</b>
+                    <span>Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
+                </div>
+                <div class="reward-tag">50 $SPL</div>
+            </div>
+        </div>
+
+        <footer>
+            &copy; 2026 SPLAYED Foundation. Decentralized Layer-1 Explorer.
+        </footer>
+    </div>
+
+</body>
+  </html>
