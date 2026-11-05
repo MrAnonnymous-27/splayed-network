@@ -18,13 +18,13 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             min-height: 100vh;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
         }
         .container {
             max-width: 800px;
+            width: 100%;
             background: rgba(17, 24, 39, 0.7);
             border: 1px solid rgba(0, 255, 102, 0.2);
             padding: 40px;
@@ -71,6 +71,35 @@
             color: #9ca3af;
             font-size: 0.9rem;
         }
+        /* Roadmap Section Styling */
+        .roadmap-section {
+            margin: 35px 0;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            padding: 25px;
+            border-radius: 12px;
+        }
+        .roadmap-section h2 {
+            font-size: 1.4rem;
+            color: #00f3ff;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .roadmap-item {
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            color: #d1d5db;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .roadmap-item.completed {
+            color: #00ff66;
+        }
+        .btn-container {
+            margin-top: 25px;
+        }
         .btn {
             display: inline-block;
             background: linear-gradient(90deg, #00ff66, #00f3ff);
@@ -113,7 +142,19 @@
             </div>
         </div>
 
-        <a href="WHITEPAPER.md" class="btn" target="_blank">Explore Whitepaper</a>
+        <!-- Roadmap Section Added -->
+        <div class="roadmap-section">
+            <h2>🚀 Development Roadmap</h2>
+            <div class="roadmap-item completed">✅ <b>Phase 1:</b> Concept Design, Brand Identity & Tokenomics</div>
+            <div class="roadmap-item completed">✅ <b>Phase 2:</b> Official Web Interface & Public Infrastructure Setup</div>
+            <div class="roadmap-item">⏳ <b>Phase 3:</b> Whitepaper Release & Architecture Documentation</div>
+            <div class="roadmap-item">⏳ <b>Phase 4:</b> Core Splaychain Testnet Deployment & Security Audits</div>
+            <div class="roadmap-item">⏳ <b>Phase 5:</b> Mainnet Launch, Wallet Release & Global Exchange Listing</div>
+        </div>
+
+        <div class="btn-container">
+            <a href="WHITEPAPER.md" class="btn" target="_blank">Explore Whitepaper</a>
+        </div>
 
         <footer>
             &copy; 2026 SPLAYED Foundation. All rights reserved. Powered by $SPL.
