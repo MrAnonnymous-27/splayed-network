@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SPLAYED ($SPL) — Sovereign Layer-1 Network</title>
+    <title>SPLAYED ($SPL) - Sovereign Layer-1 Currency</title>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <style>
         * {
@@ -20,180 +20,11 @@
             align-items: center;
             min-height: 100vh;
             padding: 40px 20px;
+            overflow-x: hidden;
+            position: relative;
         }
-        .container {
-            max-width: 850px;
-            width: 100%;
-            background: rgba(17, 24, 39, 0.75);
-            border: 1px solid rgba(0, 255, 102, 0.2);
-            padding: 40px;
-            border-radius: 24px;
-            box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
-            text-align: center;
-        }
-        .logo-img {
-            width: 90px;
-            height: 90px;
-            margin-bottom: 20px;
-            filter: drop-shadow(0 0 15px rgba(0, 255, 102, 0.5));
-        }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            background: linear-gradient(90deg, #00ff66, #00f3ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        p.subtitle {
-            color: #9ca3af;
-            font-size: 1.05rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
-        /* Market Ticker Card */
-        .market-ticker {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid rgba(0, 243, 255, 0.25);
-            padding: 20px;
-            border-radius: 16px;
-            margin-bottom: 30px;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .ticker-item h4 {
-            color: #9ca3af;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-        .ticker-item .price {
-            color: #00ff66;
-            font-size: 1.4rem;
-            font-weight: bold;
-        }
-        .ticker-item .change {
-            color: #00f3ff;
-            font-size: 0.9rem;
-        }
-        .stats-container {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 30px;
-        }
-        .stat-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 20px;
-            border-radius: 16px;
-        }
-        .stat-card h3 {
-            color: #00ff66;
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        .stat-card span {
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
-        .faucet-box {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(0, 253, 255, 0.2);
-            padding: 25px;
-            border-radius: 18px;
-            margin-bottom: 35px;
-            text-align: left;
-        }
-        .faucet-box h3 {
-            color: #00f3ff;
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-        }
-        .faucet-box p {
-            color: #9ca3af;
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        .input-group {
-            display: flex;
-            gap: 10px;
-        }
-        input[type="text"] {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 18px;
-            border-radius: 12px;
-            color: #fff;
-            outline: none;
-            font-size: 0.95rem;
-        }
-        input[type="text"]:focus {
-            border-color: #00ff66;
-        }
-        button.btn-faucet {
-            background: linear-gradient(90deg, #00ff66, #00f3ff);
-            color: #0b0f19;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        button.btn-faucet:hover {
-            opacity: 0.9;
-            transform: translateY(-2px);
-        }
-        .roadmap-section {
-            text-align: left;
-            background: rgba(255, 255, 255, 0.02);
-            padding: 25px;
-            border-radius: 18px;
-            margin-bottom: 35px;
-        }
-        .roadmap-section h2 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: #00ff66;
-        }
-        .roadmap-item {
-            padding: 10px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.95rem;
-            color: #d1d5db;
-        }
-        .roadmap-item:last-child {
-            border-bottom: none;
-        }
-        .nav-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 25px;
-            flex-wrap: wrap;
-        }
-        .nav-links a {
-            color: #00f3ff;
-            text-decoration: none;
-            font-size: 0.95rem;
-            border: 1px solid rgba(0, 243, 255, 0.3);
-            padding: 8px 18px;
-            border-radius: 20px;
-            transition: 0.3s;
-        }
-        .nav-links a:hover {
-            background: rgba(0, 243, 255, 0.1);
-        }
-        footer {
-            margin-top: 30px;
-            font-size: 0.85rem;
-            color: #6b7280;
-        }
-        /* Floating Background Animation Elements */
+
+        /* --- Crazy Floating Background Animation --- */
         .bg-animations {
             position: fixed;
             top: 0;
@@ -206,33 +37,33 @@
         }
         .floating-blob {
             position: absolute;
-            background: radial-gradient(circle, rgba(0,255,102,0.15) 0%, rgba(0,243,255,0.05) 70%, transparent 100%);
+            background: radial-gradient(circle, rgba(0, 255, 102, 0.18) 0%, rgba(0, 243, 255, 0.05) 70%, transparent 100%);
             border-radius: 50%;
-            filter: blur(60px);
-            animation: floatRandom 15s infinite alternate ease-in-out;
+            filter: blur(70px);
+            animation: floatRandom 16s infinite alternate ease-in-out;
         }
         .blob-1 {
-            width: 400px;
-            height: 400px;
-            top: -100px;
-            left: -100px;
+            width: 450px;
+            height: 450px;
+            top: -120px;
+            left: -120px;
             animation-duration: 18s;
         }
         .blob-2 {
-            width: 500px;
-            height: 500px;
-            bottom: -150px;
-            right: -150px;
+            width: 550px;
+            height: 550px;
+            bottom: -180px;
+            right: -180px;
             animation-duration: 22s;
-            background: radial-gradient(circle, rgba(0,243,255,0.12) 0%, rgba(0,255,102,0.02) 70%, transparent 100%);
+            background: radial-gradient(circle, rgba(0, 243, 255, 0.15) 0%, rgba(0, 255, 102, 0.03) 70%, transparent 100%);
         }
         @keyframes floatRandom {
             0% { transform: translate(0px, 0px) scale(1); }
-            50% { transform: translate(50px, 80px) scale(1.1); }
-            100% { transform: translate(-30px, 50px) scale(0.95); }
+            50% { transform: translate(60px, 90px) scale(1.12); }
+            100% { transform: translate(-40px, 60px) scale(0.95); }
         }
 
-        /* Floating Crypto Particles */
+        /* Floating Particles */
         .particle {
             position: absolute;
             background: #00ff66;
@@ -241,71 +72,217 @@
             animation: particleFloat linear infinite;
         }
         @keyframes particleFloat {
-            0% { transform: translateY(100vh) scale(0); opacity: 0; }
-            50% { opacity: 0.6; }
+            0% { transform: translateY(105vh) scale(0); opacity: 0; }
+            50% { opacity: 0.7; }
             100% { transform: translateY(-10vh) scale(1); opacity: 0; }
-            }
+        }
+
+        /* --- Container & Layout Styling --- */
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background: rgba(17, 24, 39, 0.75);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 255, 102, 0.25);
+            padding: 40px;
+            border-radius: 28px;
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.12);
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .logo-title {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            filter: drop-shadow(0 0 10px #00ff66);
+            animation: pulseGlow 3s infinite alternate;
+        }
+        @keyframes pulseGlow {
+            0% { transform: scale(1); filter: drop-shadow(0 0 8px #00ff66); }
+            100% { transform: scale(1.08); filter: drop-shadow(0 0 18px #00f3ff); }
+        }
+        h1 {
+            font-size: 2.3rem;
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        /* Price Banner */
+        .price-banner {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            padding: 20px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .price-item {
+            text-align: center;
+        }
+        .price-label {
+            color: #9ca3af;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .price-val {
+            color: #00ff66;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .price-change {
+            color: #00ff66;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* Faucet Section */
+        .faucet-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        .faucet-box h3 {
+            color: #00f3ff;
+            margin-bottom: 8px;
+            font-size: 1.15rem;
+        }
+        .faucet-box p {
+            color: #9ca3af;
+            font-size: 0.88rem;
+            margin-bottom: 18px;
+        }
+        .input-group {
+            display: flex;
+            gap: 10px;
+        }
+        input[type="text"] {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 14px 18px;
+            border-radius: 12px;
+            color: #ffffff;
+            outline: none;
+            font-size: 0.95rem;
+        }
+        input[type="text"]:focus {
+            border-color: #00ff66;
+        }
+        button.btn-claim {
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            color: #0b0f19;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            white-space: nowrap;
+        }
+        button.btn-claim:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+        .nav-links a {
+            color: #00f3ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background: rgba(0, 243, 255, 0.15);
+            border-color: #00ff66;
+            color: #00ff66;
+        }
+
+        footer {
+            color: #6b7280;
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Crazy Floating Background Animation Container -->
+    <!-- Crazy Floating Background Animations -->
     <div class="bg-animations">
         <div class="floating-blob blob-1"></div>
         <div class="floating-blob blob-2"></div>
         <div id="particleContainer"></div>
     </div>
+
     <div class="container">
-        <img src="logo.svg" alt="SPLAYED Logo" class="logo-img">
-        
-        <h1>SPLAYED ($SPL)</h1>
+        <!-- Logo & Title -->
+        <div class="logo-title">
+            <img src="logo.svg" alt="SPLAYED Logo" class="logo-icon" onerror="this.style.display='none'">
+            <h1>SPLAYED ($SPL)</h1>
+        </div>
         <p class="subtitle">The Next Generation Decentralized Sovereign Currency. Built on absolute financial scarcity, cryptographic proof-of-work, and uncompromised security.</p>
 
-        <!-- Live Market Summary Ticker (Bitcoin Style High Value) -->
-        <div class="market-ticker">
-            <div class="ticker-item">
-                <h4>$SPL Market Price</h4>
-                <div class="price">৳ 9,482,140.50</div>
-                <div class="change">+4.82% (24h)</div>
+        <!-- Live Price Banner -->
+        <div class="price-banner">
+            <div class="price-item">
+                <div class="price-label">$SPL Market Price</div>
+                <div class="price-val">৳ 9,482,140.50</div>
+                <div class="price-change">+4.82% (24h)</div>
             </div>
-            <div class="ticker-item">
-                <h4>Market Cap</h4>
-                <div class="price">৳ 199.1 Trillion</div>
-                <div class="change">Rank #1 Layer-1</div>
+            <div class="price-item">
+                <div class="price-label">Market Cap</div>
+                <div class="price-val" style="color: #00f3ff;">৳ 199.1 Trillion</div>
+                <div style="color: #9ca3af; font-size: 0.8rem;">Rank #1 Layer-1</div>
             </div>
-        </div>
-
-        <div class="stats-container">
-            <div class="stat-card">
-                <h3>21,000,000</h3>
-                <span>Hard Cap Supply ($SPL)</span>
-            </div>
-            <div class="stat-card">
-                <h3>PoW / L1</h3>
-                <span>Sovereign Splaychain</span>
+            <div class="price-item">
+                <div class="price-label">Hard Cap Supply</div>
+                <div class="price-val" style="color: #ffffff;">21,000,000 $SPL</div>
+                <div style="color: #00ff66; font-size: 0.8rem;">PoW / Sovereign Splaychain</div>
             </div>
         </div>
 
-        <!-- Secure Micro-Faucet (Bitcoin Style Fractional Reward) -->
+        <!-- Testnet Micro-Faucet -->
         <div class="faucet-box">
             <h3>💧 Testnet Micro-Faucet</h3>
-            <p>Request micro-rewards (<b>0.00052 $SPL</b>) to test network transaction speeds and consensus sync.</p>
+            <p>Request micro-rewards (0.00052 $SPL) to test network transaction speeds and consensus sync.</p>
             <div class="input-group">
                 <input type="text" id="walletInput" placeholder="Enter Splay Address (e.g. spl1q...)">
-                <button class="btn-faucet" onclick="requestTokens()">Claim 0.00052 $SPL</button>
+                <button class="btn-claim" onclick="requestTokens()">Claim 0.00052 $SPL</button>
             </div>
         </div>
 
-        <!-- Roadmap -->
-        <div class="roadmap-section">
-            <h2>🚀 Development Roadmap</h2>
-            <div class="roadmap-item">✅ <b>Phase 1:</b> Concept Design, Brand Identity & Tokenomics</div>
-            <div class="roadmap-item">✅ <b>Phase 2:</b> Official Web Interface & Public Infrastructure Setup</div>
-            <div class="roadmap-item">✅ <b>Phase 3:</b> Whitepaper Release & Architecture Documentation</div>
-            <div class="roadmap-item">✅ <b>Phase 4:</b> Core Splaychain Testnet Deployment & Security Audits</div>
-            <div class="roadmap-item">✅ <b>Phase 5:</b> Mainnet Launch, Wallet Release & Global Exchange Listing</div>
-        </div>
-
+        <!-- Ecosystem Navigation Links -->
         <div class="nav-links">
             <a href="referral.html">🎁 Referral & Airdrop</a>
             <a href="trade.html">💱 SplaySwap DEX</a>
@@ -315,21 +292,30 @@
         </div>
 
         <footer>
-            &copy; 2026 SPLAYED Foundation. All rights reserved. Sovereign Decentralized Network.
+            © 2026 SPLAYED Foundation. All rights reserved. Sovereign Decentralized Network.
         </footer>
     </div>
 
     <script>
-        <script>
-        // Generate Floating Particles Dynamically
+        // Faucet Request Logic
+        function requestTokens() { 
+            const wallet = document.getElementById('walletInput').value.trim(); 
+            if (!wallet) { 
+                alert('Please enter a valid Splay Wallet Address!'); 
+                return; 
+            } 
+            alert('🎉 Micro-Reward Dispatched!\n0.00052 $SPL has been broadcasted to testnet address:\n' + wallet); 
+            document.getElementById('walletInput').value = ''; 
+        }
+
+        // Dynamic Floating Particles Generator
         const particleContainer = document.getElementById('particleContainer');
-        const particleCount = 20;
+        const particleCount = 22;
 
         for (let i = 0; i < particleCount; i++) {
             const p = document.createElement('div');
             p.classList.add('particle');
             
-            // Random sizing, positioning and speeds
             const size = Math.random() * 4 + 2;
             p.style.width = size + 'px';
             p.style.height = size + 'px';
@@ -337,21 +323,10 @@
             p.style.animationDuration = (Math.random() * 10 + 8) + 's';
             p.style.animationDelay = (Math.random() * 5) + 's';
             
-            // Alternate glow color between neon green and cyan
             p.style.background = Math.random() > 0.5 ? '#00ff66' : '#00f3ff';
             p.style.boxShadow = `0 0 ${size * 2}px ${p.style.background}`;
 
             particleContainer.appendChild(p);
-        }
-    </script>
-        function requestTokens() {
-            const wallet = document.getElementById('walletInput').value.trim();
-            if (!wallet) {
-                alert('Please enter a valid Splay Wallet Address!');
-                return;
-            }
-            alert('🎉 Micro-Reward Dispatched!\n0.00052 $SPL has been broadcasted to testnet address:\n' + wallet);
-            document.getElementById('walletInput').value = '';
         }
     </script>
 </body>
