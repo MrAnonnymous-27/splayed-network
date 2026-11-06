@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Crypto Markets & $SPL Tracker</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 950px;
+            width: 100%;
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            padding: 30px;
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
+        }
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .live-badge {
+            background: rgba(0, 255, 102, 0.1);
+            border: 1px solid rgba(0, 255, 102, 0.3);
+            color: #00ff66;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        p.subtitle {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+        /* Table Styling */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+        }
+        th {
+            background: rgba(255, 255, 255, 0.03);
+            color: #9ca3af;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        td {
+            padding: 18px 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.95rem;
+        }
+        tr:hover {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        .coin-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+        }
+        .coin-symbol {
+            color: #6b7280;
+            font-size: 0.85rem;
+        }
+        .highlight-row {
+            background: rgba(0, 255, 102, 0.05);
+            border-left: 3px solid #00ff66;
+        }
+        .highlight-row td {
+            font-weight: bold;
+        }
+        .positive {
+            color: #00ff66;
+        }
+        .negative {
+            color: #ff4d4d;
+        }
+        .nav-back {
+            display: inline-block;
+            margin-top: 25px;
+            color: #00f3ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-back:hover {
+            background: rgba(0, 243, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-flex">
+            <h1>🌐 Global Crypto Market Overview</h1>
+            <div class="live-badge">🟢 Real-Time Ticker</div>
+        </div>
+        <p class="subtitle">Top Layer-1 cryptocurrencies and digital sovereign currencies ranked by market capitalization and valuation.</p>
+
+        <div class="table-responsive">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Price (BDT)</th>
+                        <th>24h Change</th>
+                        <th>Market Cap</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Bitcoin -->
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <div class="coin-name">Bitcoin <span class="coin-symbol">BTC</span></div>
+                        </td>
+                        <td>৳ 9,449,561.38</td>
+                        <td class="negative">−5.98%</td>
+                        <td>৳ 186.4 Trillion</td>
+                    </tr>
+                    <!-- Ethereum -->
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <div class="coin-name">Ethereum <span class="coin-symbol">ETH</span></div>
+                        </td>
+                        <td>৳ 342,120.50</td>
+                        <td class="positive">+2.45%</td>
+                        <td>৳ 41.2 Trillion</td>
+                    </tr>
+                    <!-- TON Coin -->
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <div class="coin-name">Toncoin <span class="coin-symbol">TON</span></div>
+                        </td>
+                        <td>৳ 685.40</td>
+                        <td class="positive">+1.12%</td>
+                        <td>৳ 3.5 Trillion</td>
+                    </tr>
+                    <!-- SPLAYED ($SPL) - Highlighted as Top Sovereign L1 -->
+                    <tr class="highlight-row">
+                        <td>⭐</td>
+                        <td>
+                            <div class="coin-name" style="color: #00ff66;">SPLAYED <span class="coin-symbol" style="color: #00f3ff;">$SPL</span></div>
+                        </td>
+                        <td style="color: #00ff66;">৳ 9,482,140.50</td>
+                        <td class="positive">+4.82%</td>
+                        <td>৳ 199.1 Trillion</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <a href="index.html" class="nav-back">&larr; Back to Home</a>
+    </div>
+
+</body>
+  </html>
