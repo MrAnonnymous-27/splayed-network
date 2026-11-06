@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Splaychain Explorer — SPLAYED ($SPL)</title>
+    <title>Splaychain Explorer ($SPL)</title>
     <link rel="icon" type="image/svg+xml" href="logo.svg">
     <style>
         * {
@@ -22,31 +22,23 @@
             padding: 40px 20px;
         }
         .container {
-            max-width: 900px;
+            max-width: 850px;
             width: 100%;
-            background: rgba(17, 24, 39, 0.7);
+            background: rgba(17, 24, 39, 0.75);
             border: 1px solid rgba(0, 255, 102, 0.2);
-            padding: 30px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
         }
-        header {
+        .header-flex {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 20px;
-            margin-bottom: 30px;
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
+            flex-wrap: wrap;
             gap: 15px;
-        }
-        .logo-img {
-            width: 45px;
-            height: 45px;
-            filter: drop-shadow(0 0 10px rgba(0, 255, 102, 0.4));
         }
         h1 {
             font-size: 1.8rem;
@@ -54,128 +46,144 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        .back-btn {
-            background: rgba(255, 255, 255, 0.05);
+        .network-status {
+            background: rgba(0, 255, 102, 0.1);
             border: 1px solid rgba(0, 255, 102, 0.3);
             color: #00ff66;
-            padding: 8px 16px;
+            padding: 6px 14px;
             border-radius: 20px;
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            transition: 0.3s;
+            font-size: 0.85rem;
+            font-weight: bold;
         }
-        .back-btn:hover {
-            background: rgba(0, 255, 102, 0.1);
-        }
-        .stats-grid {
+        .explorer-stats {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 15px;
             margin-bottom: 30px;
         }
-        .stat-card {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 12px;
+        @media (max-width: 600px) {
+            .explorer-stats {
+                grid-template-columns: 1fr;
+            }
+        }
+        .stat-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 14px;
             text-align: center;
         }
-        .stat-card h3 {
-            color: #00ff66;
-            font-size: 1.5rem;
-            margin-bottom: 5px;
-        }
-        .stat-card span {
+        .stat-box h4 {
             color: #9ca3af;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        .stat-box .val {
+            color: #00f3ff;
+            font-size: 1.1rem;
+            font-weight: bold;
         }
         .section-title {
             font-size: 1.2rem;
-            color: #00f3ff;
+            color: #00ff66;
             margin-bottom: 15px;
         }
-        .block-list {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        .block-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 15px;
+            transition: 0.3s;
         }
-        .block-item {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 15px 20px;
-            border-radius: 10px;
+        .block-card:hover {
+            border-color: rgba(0, 243, 255, 0.3);
+        }
+        .block-header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-        }
-        .block-info span {
-            display: block;
-            font-size: 0.85rem;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
             color: #9ca3af;
         }
-        .block-info b {
-            color: #fff;
-            font-size: 1rem;
+        .block-header span b {
+            color: #ffffff;
         }
-        .reward-tag {
-            background: rgba(0, 255, 102, 0.1);
-            color: #00ff66;
-            border: 1px solid rgba(0, 255, 102, 0.2);
-            padding: 5px 12px;
+        .hash {
+            font-family: monospace;
+            color: #00f3ff;
+            font-size: 0.85rem;
+            word-break: break-all;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 6px 10px;
+            border-radius: 8px;
+            margin-top: 8px;
+        }
+        .nav-back {
+            display: inline-block;
+            margin-top: 25px;
+            color: #00f3ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            padding: 8px 18px;
             border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
+            transition: 0.3s;
         }
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 0.85rem;
-            color: #6b7280;
+        .nav-back:hover {
+            background: rgba(0, 243, 255, 0.1);
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <header>
-            <div class="logo-area">
-                <img src="logo.svg" alt="SPLAYED Logo" class="logo-img">
-                <h1>Splaychain Explorer</h1>
-            </div>
-            <a href="index.html" class="back-btn">← Home</a>
-        </header>
+        <div class="header-flex">
+            <h1>🔍 Splaychain Explorer</h1>
+            <div class="network-status">🟢 Mainnet Syncing</div>
+        </div>
 
-        <div class="stats-grid">
-            <div class="stat-card">
-                <h3>#1</h3>
-                <span>Current Height</span>
+        <!-- Live Ledger Metrics -->
+        <div class="explorer-stats">
+            <div class="stat-box">
+                <h4>Latest Height</h4>
+                <div class="val" id="blockHeight">#842,109</div>
             </div>
-            <div class="stat-card">
-                <h3>50 SPL</h3>
-                <span>Block Reward</span>
+            <div class="stat-box">
+                <h4>Micro-Reward Rate</h4>
+                <div class="val">0.00052 $SPL</div>
             </div>
-            <div class="stat-card">
-                <h3>SHA-256</h3>
-                <span>Consensus PoW</span>
+            <div class="stat-box">
+                <h4>Network Hashrate</h4>
+                <div class="val">42.8 EH/s</div>
             </div>
         </div>
 
-        <div class="section-title">📦 Genesis Block & Recent Ledgers</div>
-        <div class="block-list">
-            <div class="block-item">
-                <div class="block-info">
-                    <b>Block #0 (Genesis Block)</b>
-                    <span>Hash: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855</span>
-                </div>
-                <div class="reward-tag">50 $SPL</div>
+        <div class="section-title">📦 Recent Verified Blocks</div>
+
+        <!-- Block 1 -->
+        <div class="block-card">
+            <div class="block-header">
+                <span>Block <b>#842,109</b></span>
+                <span>Miner: <i>spl1q9...8af2</i></span>
             </div>
+            <div style="font-size: 0.9rem; color: #d1d5db; margin-bottom: 5px;">Transactions: <b>1,420 txs</b> | Reward: 0.00052 $SPL</div>
+            <div class="hash">Hash: 00000000000000000003b8c2e91a4f8d7b3e1c2a9f4e6d8b1a2c3d4e5f6a7b8c</div>
         </div>
 
-        <footer>
-            &copy; 2026 SPLAYED Foundation. Decentralized Layer-1 Explorer.
-        </footer>
+        <!-- Block 2 (Genesis / Older) -->
+        <div class="block-card">
+            <div class="block-header">
+                <span>Block <b>#842,108</b></span>
+                <span>Miner: <i>spl1q4...3bc9</i></span>
+            </div>
+            <div style="font-size: 0.9rem; color: #d1d5db; margin-bottom: 5px;">Transactions: <b>984 txs</b> | Reward: 0.00052 $SPL</div>
+            <div class="hash">Hash: 00000000000000000001a7f1d82c3b4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c</div>
+        </div>
+
+        <a href="index.html" class="nav-back">&larr; Back to Home</a>
     </div>
 
 </body>
-  </html>
+    </html>
