@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplaySwap DEX & Trading ($SPL)</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 520px;
+            width: 100%;
+            background: rgba(17, 24, 39, 0.85);
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            padding: 35px;
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
+        }
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        h1 {
+            font-size: 1.6rem;
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dex-badge {
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            color: #00f3ff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: bold;
+        }
+        .swap-box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 18px;
+            border-radius: 16px;
+            margin-bottom: 12px;
+        }
+        .swap-label {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .swap-input-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        input {
+            background: transparent;
+            border: none;
+            color: #ffffff;
+            font-size: 1.5rem;
+            width: 60%;
+            outline: none;
+        }
+        .token-select {
+            background: rgba(255, 255, 255, 0.08);
+            color: #ffffff;
+            padding: 8px 14px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .switch-btn {
+            text-align: center;
+            margin: 8px 0;
+        }
+        .switch-btn button {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #00f3ff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+        .switch-btn button:hover {
+            background: rgba(0, 243, 255, 0.2);
+        }
+        .swap-btn {
+            width: 100%;
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            color: #0b0f19;
+            border: none;
+            padding: 15px;
+            border-radius: 16px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+        .swap-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .market-info {
+            margin-top: 25px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 14px;
+            font-size: 0.85rem;
+            color: #9ca3af;
+            line-height: 1.5;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #00f3ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background: rgba(0, 243, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-flex">
+            <h1>💱 SplaySwap DEX</h1>
+            <div class="dex-badge">🟢 Automated Market Maker</div>
+        </div>
+
+        <!-- Swap From -->
+        <div class="swap-box">
+            <div class="swap-label">
+                <span>You Pay</span>
+                <span>Balance: 1.42800 $SPL</span>
+            </div>
+            <div class="swap-input-group">
+                <input type="number" id="payAmount" value="0.0500" oninput="calculateSwap()">
+                <div class="token-select">$SPL</div>
+            </div>
+        </div>
+
+        <div class="switch-btn">
+            <button onclick="alert('Swapping pool route updated!')">↓</button>
+        </div>
+
+        <!-- Swap To -->
+        <div class="swap-box">
+            <div class="swap-label">
+                <span>You Receive (Estimated)</span>
+                <span>Balance: ৳ 0.00</span>
+            </div>
+            <div class="swap-input-group">
+                <input type="text" id="receiveAmount" value="474,107" readonly style="color: #00ff66;">
+                <div class="token-select">BDT (৳)</div>
+            </div>
+        </div>
+
+        <button class="swap-btn" onclick="executeSwap()">Execute Swap Order</button>
+
+        <div class="market-info">
+            <div>📈 Exchange Rate: 1 $SPL = ৳ 9,482,140.50</div>
+            <div>⚡ Slippage Tolerance: 0.1% (Low Gas Fee)</div>
+        </div>
+
+        <div class="nav-links">
+            <a href="miner.html">&larr; Web Miner</a>
+            <a href="index.html">Home</a>
+            <a href="markets.html">Markets</a>
+        </div>
+    </div>
+
+    <script>
+        function calculateSwap() {
+            const val = document.getElementById('payAmount').value;
+            const rate = 9482140.50;
+            const total = val * rate;
+            document.getElementById('receiveAmount').value = total.toLocaleString('en-US', {maximumFractionDigits: 2});
+        }
+
+        function executeSwap() {
+            const amount = document.getElementById('payAmount').value;
+            if(!amount || amount <= 0) {
+                alert('Please enter a valid amount to swap!');
+                return;
+            }
+            alert(`🎉 Swap Successful!\nSuccessfully traded ${amount} $SPL on Splaychain AMM liquidity pool.`);
+        }
+    </script>
+</body>
+          </html>
