@@ -193,10 +193,68 @@
             font-size: 0.85rem;
             color: #6b7280;
         }
+        /* Floating Background Animation Elements */
+        .bg-animations {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .floating-blob {
+            position: absolute;
+            background: radial-gradient(circle, rgba(0,255,102,0.15) 0%, rgba(0,243,255,0.05) 70%, transparent 100%);
+            border-radius: 50%;
+            filter: blur(60px);
+            animation: floatRandom 15s infinite alternate ease-in-out;
+        }
+        .blob-1 {
+            width: 400px;
+            height: 400px;
+            top: -100px;
+            left: -100px;
+            animation-duration: 18s;
+        }
+        .blob-2 {
+            width: 500px;
+            height: 500px;
+            bottom: -150px;
+            right: -150px;
+            animation-duration: 22s;
+            background: radial-gradient(circle, rgba(0,243,255,0.12) 0%, rgba(0,255,102,0.02) 70%, transparent 100%);
+        }
+        @keyframes floatRandom {
+            0% { transform: translate(0px, 0px) scale(1); }
+            50% { transform: translate(50px, 80px) scale(1.1); }
+            100% { transform: translate(-30px, 50px) scale(0.95); }
+        }
+
+        /* Floating Crypto Particles */
+        .particle {
+            position: absolute;
+            background: #00ff66;
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: particleFloat linear infinite;
+        }
+        @keyframes particleFloat {
+            0% { transform: translateY(100vh) scale(0); opacity: 0; }
+            50% { opacity: 0.6; }
+            100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+            }
     </style>
 </head>
 <body>
 
+    <!-- Crazy Floating Background Animation Container -->
+    <div class="bg-animations">
+        <div class="floating-blob blob-1"></div>
+        <div class="floating-blob blob-2"></div>
+        <div id="particleContainer"></div>
+    </div>
     <div class="container">
         <img src="logo.svg" alt="SPLAYED Logo" class="logo-img">
         
@@ -262,6 +320,30 @@
     </div>
 
     <script>
+        <script>
+        // Generate Floating Particles Dynamically
+        const particleContainer = document.getElementById('particleContainer');
+        const particleCount = 20;
+
+        for (let i = 0; i < particleCount; i++) {
+            const p = document.createElement('div');
+            p.classList.add('particle');
+            
+            // Random sizing, positioning and speeds
+            const size = Math.random() * 4 + 2;
+            p.style.width = size + 'px';
+            p.style.height = size + 'px';
+            p.style.left = Math.random() * 100 + 'vw';
+            p.style.animationDuration = (Math.random() * 10 + 8) + 's';
+            p.style.animationDelay = (Math.random() * 5) + 's';
+            
+            // Alternate glow color between neon green and cyan
+            p.style.background = Math.random() > 0.5 ? '#00ff66' : '#00f3ff';
+            p.style.boxShadow = `0 0 ${size * 2}px ${p.style.background}`;
+
+            particleContainer.appendChild(p);
+        }
+    </script>
         function requestTokens() {
             const wallet = document.getElementById('walletInput').value.trim();
             if (!wallet) {
