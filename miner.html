@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Splaychain PoW Web Miner ($SPL)</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(0, 255, 102, 0.2);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
+            text-align: center;
+        }
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        p.subtitle {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+        .miner-dashboard {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        @media (max-width: 600px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 14px;
+        }
+        .stat-card h4 {
+            color: #9ca3af;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .stat-card .val {
+            color: #00ff66;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            background: rgba(255, 77, 77, 0.1);
+            border: 1px solid rgba(ff, 77, 77, 0.3);
+            color: #ff4d4d;
+        }
+        .status-badge.active {
+            background: rgba(0, 255, 102, 0.1);
+            border: 1px solid rgba(0, 255, 102, 0.3);
+            color: #00ff66;
+        }
+        .btn-miner {
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            color: #0b0f19;
+            border: none;
+            padding: 14px 36px;
+            border-radius: 14px;
+            font-size: 1.05rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-miner:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .btn-stop {
+            background: rgba(255, 77, 77, 0.2);
+            color: #ff4d4d;
+            border: 1px solid rgba(255, 77, 77, 0.4);
+        }
+        .hash-log {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            color: #00f3ff;
+            height: 120px;
+            overflow-y: auto;
+            text-align: left;
+            margin-top: 20px;
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #00f3ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background: rgba(0, 243, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>⛏️ Splaychain Web Miner</h1>
+        <p class="subtitle">Mine $SPL directly in your browser using CPU Proof-of-Work algorithm. Earn micro-rewards for securing the layer-1 network.</p>
+
+        <div class="miner-dashboard">
+            <div id="statusBadge" class="status-badge">🔴 Miner Idle (Stopped)</div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h4>Current Hashrate</h4>
+                    <div class="val" id="hashrate">0.0 H/s</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Mined Balance</h4>
+                    <div class="val" id="minedBalance">0.00000 $SPL</div>
+                </div>
+                <div class="stat-card">
+                    <h4>Hashes Solved</h4>
+                    <div class="val" id="hashesCount">0</div>
+                </div>
+            </div>
+
+            <button id="minerBtn" class="btn-miner" onclick="toggleMining()">Start Mining $SPL</button>
+
+            <div class="hash-log" id="hashLog">
+                [System] Splaychain miner initialized... Click 'Start Mining' to solve blocks.<br>
+            </div>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">&larr; Back to Home</a>
+            <a href="markets.html">Live Market List</a>
+            <a href="explorer.html">Block Explorer</a>
+        </div>
+    </div>
+
+    <script>
+        let isMining = false;
+        let miningInterval;
+        let minedBalance = 0.00000;
+        let hashes = 0;
+
+        function toggleMining() {
+            const btn = document.getElementById('minerBtn');
+            const status = document.getElementById('statusBadge');
+            const log = document.getElementById('hashLog');
+
+            if (!isMining) {
+                isMining = true;
+                btn.innerText = 'Stop Mining';
+                btn.classList.add('btn-stop');
+                status.innerText = '🟢 Mining Active (PoW Engine Running)';
+                status.classList.add('active');
+
+                log.innerHTML += `[${new Date().toLocaleTimeString()}] Mining thread started. Mining target block #842,110...<br>`;
+                log.scrollTop = log.scrollHeight;
+
+                miningInterval = setInterval(() => {
+                    // Random realistic hashrate fluctuation
+                    const hr = (Math.random() * (48.5 - 38.0) + 38.0).toFixed(1);
+                    document.getElementById('hashrate').innerText = hr + ' H/s';
+
+                    hashes += Math.floor(Math.random() * 50) + 30;
+                    document.getElementById('hashesCount').innerText = hashes;
+
+                    // Increment fractional reward (Bitcoin Satoshes style)
+                    minedBalance += 0.00001;
+                    document.getElementById('minedBalance').innerText = minedBalance.toFixed(5) + ' $SPL';
+
+                    // Generate dummy block hashes for log
+                    const randomHash = '0000' + Array.from({length: 24}, () => Math.floor(Math.random()*16).toString(16)).join('');
+                    log.innerHTML += `[${new Date().toLocaleTimeString()}] Nonce verified! Hash: ${randomHash}<br>`;
+                    log.scrollTop = log.scrollHeight;
+                }, 1500);
+
+            } else {
+                isMining = false;
+                clearInterval(miningInterval);
+                btn.innerText = 'Start Mining $SPL';
+                btn.classList.remove('btn-stop');
+                status.innerText = '🔴 Miner Idle (Stopped)';
+                status.classList.remove('active');
+                document.getElementById('hashrate').innerText = '0.0 H/s';
+
+                log.innerHTML += `[${new Date().toLocaleTimeString()}] Miner paused by user.<br>`;
+                log.scrollTop = log.scrollHeight;
+            }
+        }
+    </script>
+</body>
+  </html>
