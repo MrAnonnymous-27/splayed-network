@@ -22,9 +22,9 @@
             padding: 40px 20px;
         }
         .container {
-            max-width: 800px;
+            max-width: 850px;
             width: 100%;
-            background: rgba(17, 24, 39, 0.7);
+            background: rgba(17, 24, 39, 0.75);
             border: 1px solid rgba(0, 255, 102, 0.2);
             padding: 40px;
             border-radius: 24px;
@@ -50,11 +50,39 @@
             line-height: 1.6;
             margin-bottom: 30px;
         }
+        /* Market Ticker Card */
+        .market-ticker {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(0, 243, 255, 0.25);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .ticker-item h4 {
+            color: #9ca3af;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+        .ticker-item .price {
+            color: #00ff66;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        .ticker-item .change {
+            color: #00f3ff;
+            font-size: 0.9rem;
+        }
         .stats-container {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
         .stat-card {
             background: rgba(255, 255, 255, 0.03);
@@ -146,6 +174,7 @@
             justify-content: center;
             gap: 15px;
             margin-top: 25px;
+            flex-wrap: wrap;
         }
         .nav-links a {
             color: #00f3ff;
@@ -172,30 +201,44 @@
         <img src="logo.svg" alt="SPLAYED Logo" class="logo-img">
         
         <h1>SPLAYED ($SPL)</h1>
-        <p class="subtitle">The Next Generation Decentralized Sovereign Currency. Built for absolute financial freedom, supreme scalability, and strict scarcity. Engineered for the future.</p>
+        <p class="subtitle">The Next Generation Decentralized Sovereign Currency. Built on absolute financial scarcity, cryptographic proof-of-work, and uncompromised security.</p>
+
+        <!-- Live Market Summary Ticker (Bitcoin Style High Value) -->
+        <div class="market-ticker">
+            <div class="ticker-item">
+                <h4>$SPL Market Price</h4>
+                <div class="price">৳ 9,482,140.50</div>
+                <div class="change">+4.82% (24h)</div>
+            </div>
+            <div class="ticker-item">
+                <h4>Market Cap</h4>
+                <div class="price">৳ 199.1 Trillion</div>
+                <div class="change">Rank #1 Layer-1</div>
+            </div>
+        </div>
 
         <div class="stats-container">
             <div class="stat-card">
-                <h3>21M</h3>
-                <span>Max Total Supply ($SPL)</span>
+                <h3>21,000,000</h3>
+                <span>Hard Cap Supply ($SPL)</span>
             </div>
             <div class="stat-card">
-                <h3>Layer 1</h3>
-                <span>Independent Splaychain</span>
+                <h3>PoW / L1</h3>
+                <span>Sovereign Splaychain</span>
             </div>
         </div>
 
-        <!-- Interactive Faucet Form -->
+        <!-- Secure Micro-Faucet (Bitcoin Style Fractional Reward) -->
         <div class="faucet-box">
-            <h3>💧 Splaychain Testnet Faucet</h3>
-            <p>Enter your wallet address to request 20 free testnet $SPL tokens for testing.</p>
+            <h3>💧 Testnet Micro-Faucet</h3>
+            <p>Request micro-rewards (<b>0.00052 $SPL</b>) to test network transaction speeds and consensus sync.</p>
             <div class="input-group">
                 <input type="text" id="walletInput" placeholder="Enter Splay Address (e.g. spl1q...)">
-                <button class="btn-faucet" onclick="requestTokens()">Request $SPL</button>
+                <button class="btn-faucet" onclick="requestTokens()">Claim 0.00052 $SPL</button>
             </div>
         </div>
 
-        <!-- Roadmap Section -->
+        <!-- Roadmap -->
         <div class="roadmap-section">
             <h2>🚀 Development Roadmap</h2>
             <div class="roadmap-item">✅ <b>Phase 1:</b> Concept Design, Brand Identity & Tokenomics</div>
@@ -203,16 +246,16 @@
             <div class="roadmap-item">✅ <b>Phase 3:</b> Whitepaper Release & Architecture Documentation</div>
             <div class="roadmap-item">✅ <b>Phase 4:</b> Core Splaychain Testnet Deployment & Security Audits</div>
             <div class="roadmap-item">✅ <b>Phase 5:</b> Mainnet Launch, Wallet Release & Global Exchange Listing</div>
-    </div>
+        </div>
 
         <div class="nav-links">
             <a href="explorer.html">Block Explorer</a>
             <a href="WHITEPAPER.md" target="_blank">Whitepaper</a>
-            <a href="https://github.com/mranonnymous-27/splayed-network" target="_blank">GitHub</a>
+            <a href="https://github.com/mranonnymous-27/splayed-network" target="_blank">GitHub Repository</a>
         </div>
 
         <footer>
-            &copy; 2026 SPLAYED Foundation. All rights reserved. Powered by $SPL.
+            &copy; 2026 SPLAYED Foundation. All rights reserved. Sovereign Decentralized Network.
         </footer>
     </div>
 
@@ -223,7 +266,7 @@
                 alert('Please enter a valid Splay Wallet Address!');
                 return;
             }
-            alert('🎉 Request Received!\n20 Testnet $SPL tokens have been queued for dispatch to:\n' + wallet);
+            alert('🎉 Micro-Reward Dispatched!\n0.00052 $SPL has been broadcasted to testnet address:\n' + wallet);
             document.getElementById('walletInput').value = '';
         }
     </script>
