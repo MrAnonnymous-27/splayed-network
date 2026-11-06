@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SplayPay Gateway & Developer SDK ($SPL)</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #0b0f19;
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        .container {
+            max-width: 850px;
+            width: 100%;
+            background: rgba(17, 24, 39, 0.85);
+            border: 1px solid rgba(0, 255, 102, 0.25);
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
+        }
+        .header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        h1 {
+            font-size: 1.8rem;
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .sdk-badge {
+            background: rgba(0, 243, 255, 0.1);
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            color: #00f3ff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        p.subtitle {
+            color: #9ca3af;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+        .box {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 25px;
+            border-radius: 18px;
+            margin-bottom: 25px;
+        }
+        .box h3 {
+            color: #00ff66;
+            font-size: 1.15rem;
+            margin-bottom: 12px;
+        }
+        .code-block {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            padding: 15px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 0.88rem;
+            color: #00f3ff;
+            overflow-x: auto;
+            white-space: pre;
+            margin-bottom: 15px;
+        }
+        .checkout-demo {
+            border: 1px dashed rgba(0, 255, 102, 0.4);
+            padding: 20px;
+            border-radius: 16px;
+            text-align: center;
+            background: rgba(0, 255, 102, 0.02);
+        }
+        .btn-splaypay {
+            background: linear-gradient(90deg, #00ff66, #00f3ff);
+            color: #0b0f19;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .btn-splaypay:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .nav-links a {
+            color: #00f3ff;
+            text-decoration: none;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0, 243, 255, 0.3);
+            padding: 8px 18px;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+        .nav-links a:hover {
+            background: rgba(0, 243, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header-flex">
+            <h1>💳 SplayPay Gateway SDK</h1>
+            <div class="sdk-badge">⚡ Instant USD/SPL Settlement</div>
+        </div>
+        <p class="subtitle">Integrate global crypto payments into your web app or store using the official SplayPay JavaScript SDK.</p>
+
+        <!-- Developer Integration Snippet -->
+        <div class="box">
+            <h3>💻 Developer Integration Code</h3>
+            <div class="code-block">&lt;!-- SplayPay One-Click Checkout Widget --&gt;
+&lt;script src="https://mranonnymous-27.github.io/splayed-network/pay.js"&gt;&lt;/script&gt;
+&lt;button onclick="SplayPay.checkout({ amountUSD: 50.00, currency: 'SPL' })"&gt;
+    Pay with $SPL
+&lt;/button&gt;</div>
+        </div>
+
+        <!-- Interactive Checkout Simulator -->
+        <div class="box">
+            <h3>🛍️ Live Checkout Demo Simulator</h3>
+            <div class="checkout-demo">
+                <p style="color: #9ca3af; margin-bottom: 12px;">Demo Product: <strong>Global Sovereign Pass ($50.00 USD)</strong></p>
+                <p style="color: #00ff66; margin-bottom: 20px; font-weight: bold;">Calculated Price: 0.000637 $SPL</p>
+                <button class="btn-splaypay" onclick="simulatePayment()">Pay with $SPL Now</button>
+            </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="index.html">&larr; Back to Home</a>
+            <a href="registry.html">🌐 Global Business</a>
+            <a href="trade.html">💱 SplaySwap DEX ($)</a>
+            <a href="markets.html">Live Market List</a>
+        </div>
+    </div>
+
+    <script>
+        function simulatePayment() {
+            alert('💳 SplayPay Encrypted Gateway Initiated!\n\nAmount: $50.00 USD (0.000637 $SPL)\nStatus: Broadcasted to Splaychain Layer-1 Validator Nodes.\n\nTransaction Hash Verified!');
+        }
+    </script>
+</body>
+  </html>
