@@ -122,7 +122,6 @@
         }
         .nav-back {
             display: inline-block;
-            margin-top: 25px;
             color: #00f3ff;
             text-decoration: none;
             font-size: 0.95rem;
@@ -133,6 +132,12 @@
         }
         .nav-back:hover {
             background: rgba(0, 243, 255, 0.1);
+        }
+        .nav-container {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 25px;
         }
     </style>
 </head>
@@ -172,7 +177,7 @@
             <div class="hash">Hash: 00000000000000000003b8c2e91a4f8d7b3e1c2a9f4e6d8b1a2c3d4e5f6a7b8c</div>
         </div>
 
-        <!-- Block 2 (Genesis / Older) -->
+        <!-- Block 2 -->
         <div class="block-card">
             <div class="block-header">
                 <span>Block <b>#842,108</b></span>
@@ -182,7 +187,11 @@
             <div class="hash">Hash: 00000000000000000001a7f1d82c3b4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c</div>
         </div>
 
-        <a href="index.html" class="nav-back">&larr; Back to Home</a>
+        <!-- Navigation Links -->
+        <div class="nav-container">
+            <a href="markets.html" class="nav-back">🌐 Live Market List</a>
+            <a href="index.html" class="nav-back">&larr; Back to Home</a>
+        </div>
     </div>
 
 </body>
