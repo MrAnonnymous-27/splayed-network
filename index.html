@@ -361,6 +361,66 @@
 
             particleContainer.appendChild(p);
         }
+        <!-- SplaySwap DEX Section (Updated to USD) -->
+<section id="splayswap" className="dex-container" style="background: #0a0e17; border: 1px solid #00ffcc; border-radius: 12px; padding: 24px; max-width: 450px; color: #fff; font-family: sans-serif;">
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+    <h3 style="margin: 0; color: #00ffcc; font-size: 1.4rem;">SplaySwap DEX</h3>
+    <span style="font-size: 0.85rem; color: #00ff99;">🟢 Automated Market Maker</span>
+  </div>
+
+  <!-- You Pay Input Box -->
+  <div style="background: #121926; padding: 14px; border-radius: 8px; margin-bottom: 10px;">
+    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #a0aec0; margin-bottom: 6px;">
+      <label>You Pay</label>
+      <span>Balance: <strong style="color: #fff;">1.42800 $SPL</strong></span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <input type="number" id="payInput" value="0.0500" step="0.0001" oninput="calculateSwap()" style="background: transparent; border: none; color: #fff; font-size: 1.4rem; width: 60%; outline: none;" />
+      <span style="font-weight: bold; color: #00ffcc; font-size: 1.1rem;">$SPL</span>
+    </div>
+  </div>
+
+  <!-- Arrow Icon -->
+  <div style="text-align: center; margin: -4px 0 6px 0; color: #00ffcc; font-size: 1.2rem;">↓</div>
+
+  <!-- You Receive Output Box -->
+  <div style="background: #121926; padding: 14px; border-radius: 8px; margin-bottom: 16px;">
+    <div style="display: flex; justify-content: space-between; font-size: 0.85rem; color: #a0aec0; margin-bottom: 6px;">
+      <label>You Receive (Estimated)</label>
+      <span>Balance: <strong style="color: #fff;">$ 0.00</strong></span>
+    </div>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <h2 id="receiveOutput" style="margin: 0; color: #00ff99; font-size: 1.5rem;">$ 3,950.89</h2>
+      <span style="font-weight: bold; color: #a0aec0; font-size: 1.1rem;">USD ($)</span>
+    </div>
+  </div>
+
+  <!-- Execute Button -->
+  <button style="width: 100%; background: linear-gradient(90deg, #00ffcc, #0099ff); color: #000; border: none; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 1rem; cursor: pointer; transition: 0.3s;">
+    Execute Swap Order
+  </button>
+
+  <!-- Rate & Details -->
+  <div style="margin-top: 16px; font-size: 0.85rem; color: #a0aec0; border-top: 1px solid #1e293b; padding-top: 12px;">
+    <p style="margin: 4px 0;">📈 Exchange Rate: <strong style="color: #fff;">1 $SPL = $79,017.83 USD</strong></p>
+    <p style="margin: 4px 0;">⚡ Slippage Tolerance: <span style="color: #00ff99;">0.1% (Low Gas Fee)</span></p>
+  </div>
+</section>
+
+<!-- Calculation Script (Include inside <script> tag) -->
+<script>
+  const splToUsdRate = 79017.83; // 1 $SPL = $79,017.83 USD
+
+  function calculateSwap() {
+    const inputVal = parseFloat(document.getElementById('payInput').value) || 0;
+    const totalUsd = inputVal * splToUsdRate;
+    
+    // Format number with commas and 2 decimal places
+    document.getElementById('receiveOutput').innerText = '$ ' + totalUsd.toLocaleString('en-US', {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2
+    });
+  }
     </script>
 </body>
     </html>
